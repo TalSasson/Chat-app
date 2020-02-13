@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
+import checkRTL from '../lib/checkRTL'
 
 const style = {
   inputWrapper: {
@@ -9,6 +10,10 @@ const style = {
   input: {
     padding: '5px 10px',
     flexGrow: 1,
+    outline: 'none',
+  },
+  rtlDirection: {
+    direction: 'rtl',
   },
   sendBtn: {
     padding: '0 30px',
@@ -24,7 +29,7 @@ function Input(props) {
   const [message, setMessage] = useState('')
   const { classes, onSendClick } = props
 
-  function handleBlur(e) {
+  function handleChange(e) {
     const { target: { value } } = e
     setMessage(value)
   }
@@ -34,6 +39,7 @@ function Input(props) {
     if (e.charCode === 13) {
       e.preventDefault()
       onSendClick(value)
+      setMessage('')
     }
   }
 
@@ -41,10 +47,12 @@ function Input(props) {
     <div className={classes.inputWrapper}>
       <input
         type="text"
-        className={classes.input}
+        value={message}
+        className={`${classes.input} ${checkRTL(message) && message ? classes.rtlDirection : ''}`}
         placeholder="Please insert message"
-        onBlur={handleBlur}
+        onChange={handleChange}
         onKeyPress={handleKeyPress}
+        onFocus={() => setMessage('')}
       />
       <button
         className={classes.sendBtn}
