@@ -1,11 +1,12 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import checkRTL from '../lib/checkRTL'
+import { THEME } from '../consts'
 
 const style = {
   messageList: {
     flexGrow: 1,
-    background: '#7dc2ad',
+    background: THEME.primaryColor,
     borderRadius: '10px 10px 0 0',
     padding: 20,
   },
@@ -20,7 +21,7 @@ const style = {
     padding: 5,
     borderRadius: 5,
     marginTop: 30,
-    background: '#f2818a',
+    background: THEME.secondaryColor,
     fontSize: 12,
     maxWidth: 50,
     width: '100%',
@@ -35,7 +36,7 @@ const style = {
     justifyContent: 'flex-end',
   },
   content: {
-    border: '1px solid #f2818a',
+    border: `1px solid ${THEME.secondaryColor}`,
     width: '100%',
     maxWidth: 300,
     borderRadius: '8px 8px 8px 0',

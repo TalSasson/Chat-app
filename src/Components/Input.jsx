@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
 import checkRTL from '../lib/checkRTL'
+import { THEME } from '../consts'
 
 const style = {
   inputWrapper: {
@@ -20,7 +21,7 @@ const style = {
     fontWeight: 'bold',
     fontSize: 14,
     background: 'white',
-    border: '2px solid #f2818a',
+    border: `2px solid ${THEME.secondaryColor}`,
     cursor: 'pointer',
   },
 }

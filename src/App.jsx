@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
 import Chat from './Components/Chat'
+import { NUMBER_OF_USERS } from './consts'
 
 const style = {
   appContainer: {
@@ -11,8 +12,6 @@ const style = {
     boxSizing: 'border-box',
   },
 }
-
-const NUMBER_OF_USERS = 2
 
 function App(props) {
   const [messages, setMessages] = useState([])
