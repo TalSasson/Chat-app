@@ -8,7 +8,7 @@
 # Download & Run
 run the following commands
 ```
-git clone https://github.com/TalSasson/chat-app.git TalSasson
+git clone https://github.com/TalSasson/Chat-app.git TalSasson
 cd TalSasson
 npm i
 npm start
