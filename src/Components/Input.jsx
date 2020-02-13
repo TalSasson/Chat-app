@@ -4,6 +4,7 @@ import injectSheet from 'react-jss'
 const style = {
   inputWrapper: {
     display: 'flex',
+    height: 40,
   },
   input: {
     padding: '5px 10px',
@@ -11,6 +12,11 @@ const style = {
   },
   sendBtn: {
     padding: '0 30px',
+    fontWeight: 'bold',
+    fontSize: 14,
+    background: 'white',
+    border: '2px solid #f2818a',
+    cursor: 'pointer',
   },
 }
 
@@ -23,6 +29,14 @@ function Input(props) {
     setMessage(value)
   }
 
+  function handleKeyPress(e) {
+    const { target: { value } } = e
+    if (e.charCode === 13) {
+      e.preventDefault()
+      onSendClick(value)
+    }
+  }
+
   return (
     <div className={classes.inputWrapper}>
       <input
@@ -30,6 +44,7 @@ function Input(props) {
         className={classes.input}
         placeholder="Please insert message"
         onBlur={handleBlur}
+        onKeyPress={handleKeyPress}
       />
       <button
         className={classes.sendBtn}
