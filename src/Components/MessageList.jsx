@@ -31,6 +31,9 @@ const style = {
     flexGrow: 1,
     position: 'relative',
   },
+  currentUserMsgTimeWrapper: {
+    justifyContent: 'flex-end',
+  },
   content: {
     border: '1px solid #f2818a',
     width: '100%',
@@ -78,7 +81,7 @@ function MessageList(props) {
             <div className={classes.userName}>
               {msg.userName}
             </div>
-            <div className={classes.msgTimeWrapper}>
+            <div className={`${classes.msgTimeWrapper} ${currentUser ? classes.currentUserMsgTimeWrapper : ''}`}>
               <div className={`${classes.content}
             ${currentUser ? classes.currentUserMsgContent : ''}
             ${lanDirection ? classes.rtlDirection : ''}`}

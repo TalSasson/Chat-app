@@ -12,7 +12,7 @@ const style = {
   },
 }
 
-const NUMBER_OF_USERS = 3
+const NUMBER_OF_USERS = 2
 
 function App(props) {
   const [messages, setMessages] = useState([])
